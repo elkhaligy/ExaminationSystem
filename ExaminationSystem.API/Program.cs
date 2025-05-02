@@ -1,4 +1,6 @@
+using ExaminationSystem.Core.Interfaces;
 using ExaminationSystem.Data;
+using ExaminationSystem.Data.Repositories;
 using Microsoft.EntityFrameworkCore;
 
 public class Program
@@ -15,6 +17,10 @@ public class Program
             options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection"))
                     .UseLazyLoadingProxies());
 
+        builder.Services.AddScoped(typeof(IGenericRepository<>), typeof(GenericRepository<>));
+
+        builder.Services.AddControllers();
+
         var app = builder.Build();
 
         // Configure the HTTP request pipeline.
@@ -24,8 +30,10 @@ public class Program
         }
 
         app.UseHttpsRedirection();
-
-
+        app.UseRouting();
+        app.UseAuthorization();
+        app.MapControllers();
+        
         app.Run();
     }
 }
