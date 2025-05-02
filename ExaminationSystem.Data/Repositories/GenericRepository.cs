@@ -24,12 +24,12 @@ namespace ExaminationSystem.Data.Repositories
         public async Task<IEnumerable<T>> FindAsync(Expression<Func<T, bool>> predicate) =>
             await _dbSet.Where(predicate).ToListAsync();
 
-        public async Task Add(T entity)
+        public void Add(T entity)
         {
             _dbSet.Add(entity);
         }
 
-        public async Task Update(T entity)
+        public void Update(T entity)
         {
             _dbSet.Update(entity);
         }
