@@ -48,6 +48,7 @@ namespace ExaminationSystem.API.Controllers
             }
         }
 
+        // PUT: api/students/{id}
         [HttpPut("{id}")]
         public async Task<IActionResult> UpdateStudent(int id, UpdateStudentDto studentDto)
         {
@@ -71,6 +72,7 @@ namespace ExaminationSystem.API.Controllers
             }
         }
 
+        // DELETE: api/students/{id}
         [HttpDelete("{id}")]
         public async Task<IActionResult> DeleteStudent(int id)
         {
@@ -85,6 +87,7 @@ namespace ExaminationSystem.API.Controllers
             }
         }
 
+        // GET: api/students/department/{departmentId}
         [HttpGet("department/{departmentId}")]
         public async Task<ActionResult<IEnumerable<StudentDto>>> GetStudentsByDepartment(int departmentId)
         {
@@ -92,6 +95,7 @@ namespace ExaminationSystem.API.Controllers
             return Ok(students);
         }
 
+        // GET: api/students/{id}/exams
         [HttpGet("{id}/exams")]
         public async Task<ActionResult<IEnumerable<StudentExamDto>>> GetStudentExams(int id)
         {
