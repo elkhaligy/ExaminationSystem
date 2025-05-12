@@ -14,7 +14,6 @@
 
   <ItemGroup>
     <ProjectReference Include="..\ExaminationSystem.Core\ExaminationSystem.Core.csproj" />
-    <ProjectReference Include="..\ExaminationSystem.Data\ExaminationSystem.Data.csproj" />
     <ProjectReference Include="..\ExaminationSystem.Service\ExaminationSystem.Service.csproj" />
   </ItemGroup>
 
