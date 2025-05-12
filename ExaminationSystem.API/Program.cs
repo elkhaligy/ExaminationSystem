@@ -22,6 +22,7 @@ public class Program
         builder.Services.AddScoped(typeof(IGenericRepository<>), typeof(GenericRepository<>));
         builder.Services.AddScoped<IStudentService, StudentService>();
         builder.Services.AddScoped<IExamService, ExamService>();
+        builder.Services.AddScoped<ISubjectService, SubjectService>();
         builder.Services.AddControllers();
 
         // Add AutoMapper
