@@ -23,6 +23,7 @@ public class Program
         builder.Services.AddScoped<IStudentService, StudentService>();
         builder.Services.AddScoped<IExamService, ExamService>();
         builder.Services.AddScoped<ISubjectService, SubjectService>();
+        builder.Services.AddScoped<IInstructorService, InstructorService>();
         builder.Services.AddControllers();
 
         // Add AutoMapper

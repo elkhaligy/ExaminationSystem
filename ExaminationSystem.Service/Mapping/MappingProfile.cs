@@ -32,6 +32,10 @@ namespace ExaminationSystem.Service.Mapping
             CreateMap<SubjectDto, Subject>();
             CreateMap<CreateSubjectDto, Subject>();
 
+            CreateMap<Instructor, InstructorDto>();
+            CreateMap<CreateInstructorDto, Instructor>();
+            CreateMap<UpdateInstructorDto, Instructor>();
+
 
 
         }
