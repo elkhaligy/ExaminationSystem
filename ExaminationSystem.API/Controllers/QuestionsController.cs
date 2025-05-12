@@ -86,10 +86,18 @@ namespace ExaminationSystem.API.Controllers
             return Ok(questions);
         }
 
-        [HttpGet("choices/{questionId}")]
-        public Task<IEnumerable<ChoiceDto>> GetChoicesByQuestion(int questionId)
+        [HttpGet("{questionId}/choices")]
+        public async Task<ActionResult<IEnumerable<ChoiceDto>>> GetChoicesByQuestion(int questionId)
         {
-            return _questionService.GetChoicesByQuestion(questionId);
+            try
+            {
+                var choices = await _questionService.GetChoicesByQuestion(questionId);
+                return Ok(choices);
+            }
+            catch (ArgumentException ex)
+            {
+                return BadRequest(ex.Message);
+            }
         }
     }
 } 
