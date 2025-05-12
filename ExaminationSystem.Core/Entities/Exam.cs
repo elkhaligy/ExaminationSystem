@@ -4,6 +4,12 @@ namespace ExaminationSystem.Core.Entities
     {
         public int Id { get; set; }
         public required string Title { get; set; }
+        public required string Description { get; set; }
+        public DateTime StartTime { get; set; }
+        public DateTime EndTime { get; set; }
+        public int Duration { get; set; } // in minutes
+        public int TotalMarks { get; set; }
+        public int PassingMarks { get; set; }
 
         public int SubjectId { get; set; }
         public virtual Subject? Subject { get; set; }

@@ -21,6 +21,7 @@ public class Program
                     .UseLazyLoadingProxies());
         builder.Services.AddScoped(typeof(IGenericRepository<>), typeof(GenericRepository<>));
         builder.Services.AddScoped<IStudentService, StudentService>();
+        builder.Services.AddScoped<IExamService, ExamService>();
         builder.Services.AddControllers();
 
         // Add AutoMapper

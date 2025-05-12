@@ -23,6 +23,12 @@ namespace ExaminationSystem.Service.Mapping
             CreateMap<StudentExam, StudentExamDto>()
                 .ForMember(dest => dest.ExamTitle,
                     opt => opt.MapFrom(src => src.Exam!.Title));
+
+            CreateMap<CreateExamDto, Exam>();
+            CreateMap<UpdateExamDto, Exam>();
+            CreateMap<ExamDto, Exam>();
+            CreateMap<Exam, ExamDto>();
+
         }
     }
 } 
