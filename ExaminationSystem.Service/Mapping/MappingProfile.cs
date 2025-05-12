@@ -9,9 +9,10 @@ namespace ExaminationSystem.Service.Mapping
         public MappingProfile()
         {
             // Student mappings
+            // It needs to be like this because Department is 
             CreateMap<Student, StudentDto>()
                 .ForMember(dest => dest.DepartmentName, 
-                    opt => opt.MapFrom(src => src.Department != null ? src.Department.Name : null));
+                    opt => opt.MapFrom(src => src.Department!.Name));
 
             CreateMap<CreateStudentDto, Student>();
             
@@ -21,7 +22,7 @@ namespace ExaminationSystem.Service.Mapping
             // StudentExam mappings
             CreateMap<StudentExam, StudentExamDto>()
                 .ForMember(dest => dest.ExamTitle,
-                    opt => opt.MapFrom(src => src.Exam != null ? src.Exam.Title : string.Empty));
+                    opt => opt.MapFrom(src => src.Exam!.Title));
         }
     }
 } 
