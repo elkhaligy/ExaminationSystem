@@ -37,6 +37,9 @@ namespace ExaminationSystem.Service.Mapping
             CreateMap<UpdateInstructorDto, Instructor>();
 
 
+            CreateMap<Choice, ChoiceDto>();
+            CreateMap<CreateChoiceDto, Choice>();
+            CreateMap<UpdateChoiceDto, Choice>();
 
         }
     }
