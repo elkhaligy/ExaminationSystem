@@ -41,6 +41,9 @@ namespace ExaminationSystem.Service.Mapping
             CreateMap<CreateChoiceDto, Choice>();
             CreateMap<UpdateChoiceDto, Choice>();
 
+            CreateMap<Question, QuestionDto>();
+            CreateMap<CreateQuestionDto, Question>();
+            CreateMap<UpdateQuestionDto, Question>();
         }
     }
 } 
