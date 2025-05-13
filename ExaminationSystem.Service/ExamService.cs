@@ -135,5 +135,21 @@ namespace ExaminationSystem.Service
             var exams = await _examRepository.FindAsync(predicate);
             return _mapper.Map<IEnumerable<ExamDto>>(exams);
         }
+
+        // I want to get the exam questions by exam id
+        // I fetch the exam from the db using ef core and utilize questions navigation property
+        // ef will do the rest for me
+        // I can name the method getquestions and it returns a list of question dto
+
+        public async Task<IEnumerable<QuestionDto>> GetQuestions(int examId)
+        {
+            // First I want to get that exam with that id
+            var currentExam = await _examRepository.GetByIdAsync(examId);
+            if (currentExam == null)
+                throw new ArgumentNullException($"Exam with id {examId} not found");
+            // now lets return the questions
+            return _mapper.Map<IEnumerable<QuestionDto>>(currentExam.Questions);
+        }
+
     }
 }

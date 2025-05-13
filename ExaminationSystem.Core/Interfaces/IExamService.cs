@@ -12,5 +12,8 @@ namespace ExaminationSystem.Core.Interfaces
         Task<IEnumerable<ExamDto>> GetExamsBySubjectAsync(int subjectId);
         Task<IEnumerable<ExamDto>> GetActiveExamsAsync();
         Task<IEnumerable<ExamDto>> GetUpcomingExamsAsync();
+
+        Task<IEnumerable<QuestionDto>> GetQuestions(int examId);
+
     }
 } 

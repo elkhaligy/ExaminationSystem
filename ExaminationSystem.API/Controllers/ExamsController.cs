@@ -1,4 +1,5 @@
 using ExaminationSystem.Core.DTOs;
+using ExaminationSystem.Core.Entities;
 using ExaminationSystem.Core.Interfaces;
 using Microsoft.AspNetCore.Mvc;
 
@@ -6,6 +7,14 @@ namespace ExaminationSystem.API.Controllers
 {
     [ApiController]
     [Route("api/[controller]")]
+    // Available Endpoints
+    // GET      /api/exams
+    // GET      /api/exams/{examId}
+    // POST     /api/exams/{examId}
+    // DELETE   /api/exams/{examId}
+    // GET      /api/exams/subject/{subjectId}
+    // GET      /api/exams/{examId}/questions
+    // GET      /api/exams/{examId}/students 
     public class ExamsController : ControllerBase
     {
         private readonly IExamService _examService;
@@ -103,6 +112,20 @@ namespace ExaminationSystem.API.Controllers
         {
             var exams = await _examService.GetUpcomingExamsAsync();
             return Ok(exams);
+        }
+
+        // GET /api/exam/{id}/questions
+        [HttpGet("{examId}/questions")]
+        public async Task<ActionResult<IEnumerable<QuestionDto>>> GetQuestions(int examId)
+        {
+            try
+            {
+                return Ok(await _examService.GetQuestions(examId));
+            }
+            catch (ArgumentNullException ex)
+            {
+                return BadRequest(ex.Message);
+            }
         }
     }
 } 
